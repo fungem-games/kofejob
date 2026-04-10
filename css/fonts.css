@@ -1,0 +1,7 @@
+@font-face {
+    font-family: Instrument-Sans;
+    src: local("Instrument-Sans"),
+        url(../assets/fonts/InstrumentSans.woff2) format('woff2'),
+        url(../assets/fonts/InstrumentSans.woff) format('woff'),
+        url(../assets/fonts/InstrumentSans.eot) format('eot');
+}
