@@ -1,544 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>Кофейня Владикавказ</title>
+    <!-- Подключаем скрипт Telegram -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: var(--tg-theme-font-family, sans-serif);
+            background-color: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #000000);
+            padding: 20px;
+            margin: 0;
+        }
+        h2 { text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--tg-theme-hint-color, #ccc);
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
+            color: var(--tg-theme-text-color, #000000);
+            font-size: 16px;
+        }
+    </style>
 </head>
-
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header-wrapper">
-                <a class="header__logo" href="#">
-                    <img src="./assets/img/Logo.png" alt="">
-                </a>
-                <ul class="header__nav-list">
-                    <li class="header__nav-item header__nav-item--active">
-                        <a href="#">Главная</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#categories">Категории</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#">Фрилансерам</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#">Новости</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#">Отзывы</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#">О нас</a>
-                    </li>
-                </ul>
-                <div class="header__not-auth-block">
-                    <a href="#" class="header__regin-button">
-                        <div class="header__regin-icon">
-                            <img src="./assets/img/regin-icon.svg" alt="">
-                        </div>
-                        <p class="header__regin-text">Регистрация</p>
-                    </a>
-                    <a href="#" class="header__login-button">
-                        <div class="header__login-icon">
-                            <img src="./assets/img/login-icon.svg" alt="">
-                        </div>
-                        <p class="header__login-text">Войти</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="search-block">
-        <div class="container">
-            <div class="search-block__wrapper">
-                <div class="search__text-block">
-                    <div class="search__users_count-block">
-                        <ul class="search__score-list">
-                            <li class="search__score-item">
-                                <img src="./assets/img/star_image.svg" alt="">
-                            </li>
-                            <li class="search__score-item">
-                                <img src="./assets/img/star_image.svg" alt="">
-                            </li>
-                            <li class="search__score-item">
-                                <img src="./assets/img/star_image.svg" alt="">
-                            </li>
-                            <li class="search__score-item">
-                                <img src="./assets/img/star_image.svg" alt="">
-                            </li>
-                            <li class="search__score-item">
-                                <img src="./assets/img/star_image.svg" alt="">
-                            </li>
-                        </ul>
-                        <span class="search__users-count-text">Больше 100 тыс. пользователей</span>
-                    </div>
-                    <h1 class="search__title">Услуги фрилансеров<br><span>за пару кликов</span></h1>
-                    <p class="search__subtitle">Вы создаете задание, и оно становится доступно тысячам фрилансеров,
-                        которые<br>могут отправить вам предложения.</p>
-                    <div class="search__field">
-                        <input class="search__input" type="text" placeholder="Что ищите?">
-                        <button class="search__button orange-button">Найти</button>
-                    </div>
-                </div>
-                <div class="search__image">
-                    <img src="./assets/img/search_image.svg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="categories">
-        <div class="container">
-            <div class="categories_wrapper">
-                <h2 class="categories__title">Популярные категории</h2>
-                <p class="categories__subtitle">Более тысячи свободных откликов в разных категориях </p>
-                <ul class="categoris__list">
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-dev.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Разработка & IT</p>
-                            <p class="categories__item-subtitle">958 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-design.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Дизайн</p>
-                            <p class="categories__item-subtitle">958 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-marketing.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Соцсети и маркетинг</p>
-                            <p class="categories__item-subtitle">486 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-texts.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Тексты и переводы</p>
-                            <p class="categories__item-subtitle">958 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-music.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Аудио и Музыка</p>
-                            <p class="categories__item-subtitle">662 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-video.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Видео и Анимация</p>
-                            <p class="categories__item-subtitle">266 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-ingeneer.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Инженерия</p>
-                            <p class="categories__item-subtitle">756 объявлений</p>
-                        </div>
-                    </li>
-                    <li class="categoris__item">
-                        <img class="categories__item-image" src="./assets/img/categories_icon-business.svg" alt="">
-                        <div class="categories__item-content">
-                            <p class="categories__item-title">Бизнесс и управление</p>
-                            <p class="categories__item-subtitle">958 объявлений</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="for-clients">
-        <div class="container">
-            <div class="for-clients__wrapper">
-                <div class="for-clients__block">
-                    <div class="for-clients__content">
-                        <div class="for-clients__text">
-                            <h3 class="for-clients__title">Вам нужен хороший проект?</h3>
-                            <p class="for-clients__subtitle">Получите идеально разработанный проект по вашему бюджету от
-                                наших проффесионалов</p>
-                        </div>
-                        <button class="for-clients__button orange-button">Найти</button>
-                    </div>
-                    <img src="./assets/img/for_clients-eployer.svg" alt="">
 
-                </div>
-                <div class="for-clients__block">
-                    <div class="for-clients__content">
-                        <div class="for-clients__text">
-                            <h3 class="for-clients__title">Вы хотите стать фриласнером?</h3>
-                            <p class="for-clients__subtitle">С нами вы начнете зарабатывать деньги, находя
-                                неограниченное количество клиентов и построите карьеру фрилансера</p>
-                        </div>
-                        <button class="for-clients__button orange-button">Найти</button>
-                    </div>
-                    <img src="./assets/img/for_clients-freelance.svg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="achievements">
-        <div class="container">
-            <div class="achievements__wrapper">
-                <h2 class="achievements__title">Наши достижения</h2>
-                <p class="achievements__subtitle">Мы стараемся стать лучше с каждым днем, привлекая новых клиентов и
-                    фрилансеров</p>
-                <ul class="achievements__list">
-                    <li class="achievements__item achievements__item--yellow">
-                        <img class="achievements__image" src="./assets/img/achievements_freelancer-count.svg" alt="">
-                        <div class="achievements__item-text">
-                            <h3 class="achievements__item-count">7,468</h3>
-                            <p class="achievements__item-name">Фрилансеров</p>
-                        </div>
-                    </li>
-                    <li class="achievements__item achievements__item--red">
-                        <img class="achievements__image" src="./assets/img/achievements_acitve-projects.svg" alt="">
-                        <div class="achievements__item-text">
-                            <h3 class="achievements__item-count">8,368</h3>
-                            <p class="achievements__item-name">Активных проектов</p>
-                        </div>
-                    </li>
-                    <li class="achievements__item achievements__item--blue">
-                        <img class="achievements__image" src="./assets/img/achievements_done-projects.svg" alt="">
-                        <div class="achievements__item-text">
-                            <h3 class="achievements__item-count">7,468</h3>
-                            <p class="achievements__item-name">Завершенных проектов</p>
-                        </div>
-                    </li>
-                    <li class="achievements__item achievements__item--green">
-                        <img class="achievements__image" src="./assets/img/achievements_clietns-count.svg" alt="">
-                        <div class="achievements__item-text">
-                            <h3 class="achievements__item-count">7,458</h3>
-                            <p class="achievements__item-name">Зарегистрированных клиентов</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <h2>☕️ Заказ кофе</h2>
+    <p style="text-align: center; color: var(--tg-theme-hint-color);">Доставка по Владикавказу</p>
 
+    <div class="form-group">
+        <label for="coffee">Выберите напиток:</label>
+        <select id="coffee">
+            <option value="Эспрессо">Эспрессо (100₽)</option>
+            <option value="Капучино">Капучино (150₽)</option>
+            <option value="Латте">Латте (170₽)</option>
+            <option value="Раф">Раф (200₽)</option>
+        </select>
     </div>
-    <div class="for-employers">
-        <div class="container">
-            <div class="for-employers__wrapper">
-                <div class="for-employers__images">
-                    <img class="for-employers__img" src="./assets/img/for_employers-img1.png" alt="">
-                    <div>
-                        <img class="for-employers__img" src="./assets/img/for_employers-img2.png" alt="">
-                        <img class="for-employers__img" src="./assets/img/for_employers-img3.png" alt="">
-                    </div>
-                </div>
-                <div class="for-employers__content">
-                    <h2 class="for-employers__title">Избавьтесь от рутинной работы и передайте её профессионалам</h2>
-                    <p class="for-employers__subtitle">Вы создаете задание, и оно становится доступно тысячам
-                        фрилансеров, которые могут отправить вам предложения. Остается только выбрать лучшее и начать
-                        работу. Такой подход к удаленной работе – идеальный вариант для решения больших и уникальных
-                        задач.</p>
-                    <ul class="for-employers__list">
-                        <li class="for-employers__item">
-                            <img class="for-employers__item-img" src="./assets/img/for_employers-icon1.svg" alt="">
-                            <div class="for-employers__item-text">
-                                <h3 class="for-employers__item-title">Разместите заказ</h3>
-                                <p class="for-employers__item-subtitle">При размещении заказа тщательно подготовьте
-                                    техническое задание и заполните описание проекта</p>
-                            </div>
-                        </li>
-                        <li class="for-employers__item">
-                            <img class="for-employers__item-img" src="./assets/img/for_employers-icon2.svg" alt="">
-                            <div class="for-employers__item-text">
-                                <h3 class="for-employers__item-title">Выберите специалиста</h3>
-                                <p class="for-employers__item-subtitle">После выбора исполнителя обговорите точные сроки
-                                    выполнения заказа и детали вашего проекта.</p>
-                            </div>
-                        </li>
-                        <li class="for-employers__item">
-                            <img class="for-employers__item-img" src="./assets/img/for_employers-icon3.svg" alt="">
-                            <div class="for-employers__item-text">
-                                <h3 class="for-employers__item-title">Проверьте результат</h3>
-                                <p class="for-employers__item-subtitle">После выполнения заказа вы можете оставить отзыв
-                                    исполнителю и поблагодарить его чаевыми.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="top-freelancers">
-        <div class="container">
-            <div class="top-freelancers__wrapper">
-                <div class="top-freelancers__content">
-                    <div class="top-freelancers__text">
-                        <h2 class="top-freelancers__title">Найдите подходящего специалиста</h2>
-                        <p class="top-freelancers__subtitle">Работайте с талантливыми людьми по самой доступной цене.
-                        </p>
-                    </div>
-                    <div class="top-freelancers__slider">
 
-                    </div>
-                </div>
-                <ul class="top-freelancers__list">
-                    <li class="top-freelancers__item">
-                        <div class="top-freelancers__favorite">
-                            <img src="./assets/img/favorite_icon.svg" alt="">
-                        </div>
-                        <div class="top-freelancers__profile">
-                            <div class="top-freelancers__avatar">
-                                <img class="top-freelancers__avatar-img" src="./assets/img/top_freelancers-img1.png"
-                                    alt="">
-                                <img class="top-freelancers__trust-profile" src="./assets/img/trust_freelancer-icon.svg"
-                                    alt="">
-                            </div>
-                            <p class="top-freelancers__name">Michael Stewart</p>
-                            <div class="top-freelancers__desc">
-                                <span class="top-freelancers__item-">React Developer</span>
-                                <img class="top-freelancers__score-img" src="./assets/img/star_image.svg" alt="">
-                                <span class="top-freelancers__score-count">5.0 (<span
-                                        class="top-freelancers__review-count">30</span>)</span>
-                            </div>
-                        </div>
-                        <div class="top-freelancers__details">
-                            <ul class="top-freelancers__categories">
-                                <li>
-                                    <button class="top-freelancers__category" type="button">Web Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">UI Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">React</button>
-                                </li>
-                            </ul>
-                            <button class="top-freelancers__view-button" type="button">Открыть профиль</button>
-                        </div>
-                    </li>
-                    <li class="top-freelancers__item">
-                        <div class="top-freelancers__favorite">
-                            <img src="./assets/img/favorite_icon.svg" alt="">
-                        </div>
-                        <div class="top-freelancers__profile">
-                            <div class="top-freelancers__avatar">
-                                <img class="top-freelancers__avatar-img" src="./assets/img/top_freelancers-img1.png"
-                                    alt="">
-                                <img class="top-freelancers__trust-profile" src="./assets/img/trust_freelancer-icon.svg"
-                                    alt="">
-                            </div>
-                            <p class="top-freelancers__name">Michael Stewart</p>
-                            <div class="top-freelancers__desc">
-                                <span class="top-freelancers__item-">React Developer</span>
-                                <img class="top-freelancers__score-img" src="./assets/img/star_image.svg" alt="">
-                                <span class="top-freelancers__score-count">5.0 (<span
-                                        class="top-freelancers__review-count">30</span>)</span>
-                            </div>
-                        </div>
-                        <div class="top-freelancers__details">
-                            <ul class="top-freelancers__categories">
-                                <li>
-                                    <button class="top-freelancers__category" type="button">Web Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">UI Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">React</button>
-                                </li>
-                            </ul>
-                            <button class="top-freelancers__view-button" type="button">Открыть профиль</button>
-                        </div>
-                    </li>
-                    <li class="top-freelancers__item">
-                        <div class="top-freelancers__favorite">
-                            <img src="./assets/img/favorite_icon.svg" alt="">
-                        </div>
-                        <div class="top-freelancers__profile">
-                            <div class="top-freelancers__avatar">
-                                <img class="top-freelancers__avatar-img" src="./assets/img/top_freelancers-img1.png"
-                                    alt="">
-                                <img class="top-freelancers__trust-profile" src="./assets/img/trust_freelancer-icon.svg"
-                                    alt="">
-                            </div>
-                            <p class="top-freelancers__name">Michael Stewart</p>
-                            <div class="top-freelancers__desc">
-                                <span class="top-freelancers__item-">React Developer</span>
-                                <img class="top-freelancers__score-img" src="./assets/img/star_image.svg" alt="">
-                                <span class="top-freelancers__score-count">5.0 (<span
-                                        class="top-freelancers__review-count">30</span>)</span>
-                            </div>
-                        </div>
-                        <div class="top-freelancers__details">
-                            <ul class="top-freelancers__categories">
-                                <li>
-                                    <button class="top-freelancers__category" type="button">Web Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">UI Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">React</button>
-                                </li>
-                            </ul>
-                            <button class="top-freelancers__view-button" type="button">Открыть профиль</button>
-                        </div>
-                    </li>
-                    <li class="top-freelancers__item">
-                        <div class="top-freelancers__favorite">
-                            <img src="./assets/img/favorite_icon.svg" alt="">
-                        </div>
-                        <div class="top-freelancers__profile">
-                            <div class="top-freelancers__avatar">
-                                <img class="top-freelancers__avatar-img" src="./assets/img/top_freelancers-img1.png"
-                                    alt="">
-                                <img class="top-freelancers__trust-profile" src="./assets/img/trust_freelancer-icon.svg"
-                                    alt="">
-                            </div>
-                            <p class="top-freelancers__name">Michael Stewart</p>
-                            <div class="top-freelancers__desc">
-                                <span class="top-freelancers__item-">React Developer</span>
-                                <img class="top-freelancers__score-img" src="./assets/img/star_image.svg" alt="">
-                                <span class="top-freelancers__score-count">5.0 (<span
-                                        class="top-freelancers__review-count">30</span>)</span>
-                            </div>
-                        </div>
-                        <div class="top-freelancers__details">
-                            <ul class="top-freelancers__categories">
-                                <li>
-                                    <button class="top-freelancers__category" type="button">Web Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">UI Design</button>
-                                </li>
-                                <li>
-                                    <button class="top-freelancers__category" type="button">React</button>
-                                </li>
-                            </ul>
-                            <button class="top-freelancers__view-button" type="button">Открыть профиль</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" placeholder="Например, Алан">
     </div>
-    <div class="reviews">
-        <div class="container">
-            <div class="reviews__wrapper">
-                <h2 class="reviews__title">Отзывы</h2>
-                <p class="reviews__subtitle">Они помогают нам стать лучше</p>
-                <ul class="reviews__list">
-                    <li class="reviews__item">
-                        <div class="reviews__user">
-                            <div class="reviews__image">
-                                <img src="./assets/img/reviews_avatar-img1.jpg" alt="">
-                            </div>
-                            <div class="reviews__user-text">
-                                <p class="reviews__user-name">Пилиев Родион</p>
-                                <p class="reviews__user-type">Фрилансер</p>
-                            </div>
-                            <img src="./assets/img/review_text-symbol.svg" alt="">
-                        </div>
-                        <p class="reviews__review-text">Большой выбор специалистов под любой бюджет. Нашел здесь
-                            постоянного верстальщика для своих проектов. Рекомендую!</p>
-                        <div class="reviews__rate">
-                            <ul class="reviews__rate-list">
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/empty-star_image.svg" alt="">
-                                </li>
-                            </ul>
-                            <p class="reviews__rate-text">4.0</p>
-                        </div>
-                    </li>
-                    <li class="reviews__item">
-                        <div class="reviews__user">
-                            <div class="reviews__image">
-                                <img src="./assets/img/reviews_avatar-img1.jpg" alt="">
-                            </div>
-                            <div class="reviews__user-text">
-                                <p class="reviews__user-name">Пилиев Родион</p>
-                                <p class="reviews__user-type">Фрилансер</p>
-                            </div>
-                            <img src="./assets/img/review_text-symbol.svg" alt="">
-                        </div>
-                        <p class="reviews__review-text">Большой выбор специалистов под любой бюджет. Нашел здесь
-                            постоянного верстальщика для своих проектов. Рекомендую!</p>
-                        <div class="reviews__rate">
-                            <ul class="reviews__rate-list">
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/empty-star_image.svg" alt="">
-                                </li>
-                            </ul>
-                            <p class="reviews__rate-text">4.0</p>
-                        </div>
-                    </li>
-                    <li class="reviews__item">
-                        <div class="reviews__user">
-                            <div class="reviews__image">
-                                <img src="./assets/img/reviews_avatar-img1.jpg" alt="">
-                            </div>
-                            <div class="reviews__user-text">
-                                <p class="reviews__user-name">Пилиев Родион</p>
-                                <p class="reviews__user-type">Фрилансер</p>
-                            </div>
-                            <img src="./assets/img/review_text-symbol.svg" alt="">
-                        </div>
-                        <p class="reviews__review-text">Большой выбор специалистов под любой бюджет. Нашел здесь
-                            постоянного верстальщика для своих проектов. Рекомендую!</p>
-                        <div class="reviews__rate">
-                            <ul class="reviews__rate-list">
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/star_image.svg" alt="">
-                                </li>
-                                <li class="reviews__rate-item">
-                                    <img src="./assets/img/empty-star_image.svg" alt="">
-                                </li>
-                            </ul>
-                            <p class="reviews__rate-text">4.0</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
+    <div class="form-group">
+        <label for="address">Адрес доставки:</label>
+        <input type="text" id="address" placeholder="Улица, дом, кв.">
     </div>
+
+    <script>
+        // Инициализация Telegram Web App
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Расширяем на весь экран
+
+        // Настраиваем главную кнопку внизу
+        tg.MainButton.textColor = '#ffffff';
+        tg.MainButton.color = '#ff9900';
+        tg.MainButton.setText('ОФОРМИТЬ ЗАКАЗ');
+        tg.MainButton.show();
+
+        // Обработка нажатия на главную кнопку
+        Telegram.WebApp.onEvent('mainButtonClicked', function() {
+            let coffee = document.getElementById('coffee').value;
+            let name = document.getElementById('name').value;
+            let address = document.getElementById('address').value;
+
+            if (!name || !address) {
+                tg.showAlert("Пожалуйста, заполните имя и адрес!");
+                return;
+            }
+
+            // Формируем данные для отправки в бота
+            let data = {
+                coffee: coffee,
+                name: name,
+                address: address
+            };
+
+            // Отправляем JSON строку в бота и закрываем окно
+            tg.sendData(JSON.stringify(data));
+            tg.close();
+        });
+    </script>
 </body>
-
 </html>
